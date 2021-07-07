@@ -84,6 +84,4 @@ class SearchCollectionViewCell: UICollectionViewCell {
 }
 
 
-extension SearchViewController {
-    typealias Cell = SearchCollectionViewCell
-}
+

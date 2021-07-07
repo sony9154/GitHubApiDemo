@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		5D424E222694B6EB00D3F715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D424E212694B6EB00D3F715 /* AppDelegate.swift */; };
 		5D424E242694B6EB00D3F715 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D424E232694B6EB00D3F715 /* SceneDelegate.swift */; };
-		5D424E262694B6EB00D3F715 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D424E252694B6EB00D3F715 /* ViewController.swift */; };
 		5D424E292694B6EB00D3F715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D424E272694B6EB00D3F715 /* Main.storyboard */; };
 		5D424E2B2694B6EE00D3F715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D424E2A2694B6EE00D3F715 /* Assets.xcassets */; };
 		5D424E2E2694B6EE00D3F715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D424E2C2694B6EE00D3F715 /* LaunchScreen.storyboard */; };
-		5D424E372694C8A100D3F715 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D424E362694C8A100D3F715 /* CollectionViewCell.swift */; };
 		65C022080CDE005A3FC03451 /* Pods_GitHubApiDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9BB9E8A4541D09BF02DD56 /* Pods_GitHubApiDemo.framework */; };
 		D76C3A582694CF7C00E5D5B7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3A572694CF7C00E5D5B7 /* APIService.swift */; };
 		D76C3A5B2694D1DF00E5D5B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3A5A2694D1DF00E5D5B7 /* User.swift */; };
@@ -28,12 +26,10 @@
 		5D424E1E2694B6EB00D3F715 /* GitHubApiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubApiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D424E212694B6EB00D3F715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D424E232694B6EB00D3F715 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5D424E252694B6EB00D3F715 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5D424E282694B6EB00D3F715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D424E2A2694B6EE00D3F715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D424E2D2694B6EE00D3F715 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D424E2F2694B6EE00D3F715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D424E362694C8A100D3F715 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		70E4F25D60C945B38EF0BD19 /* Pods-GitHubApiDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApiDemo.release.xcconfig"; path = "Target Support Files/Pods-GitHubApiDemo/Pods-GitHubApiDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D76C3A572694CF7C00E5D5B7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		D76C3A5A2694D1DF00E5D5B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -87,10 +83,8 @@
 				D76C3A592694D1C800E5D5B7 /* Models */,
 				5D424E212694B6EB00D3F715 /* AppDelegate.swift */,
 				5D424E232694B6EB00D3F715 /* SceneDelegate.swift */,
-				5D424E252694B6EB00D3F715 /* ViewController.swift */,
 				D76C3A5F26960F3800E5D5B7 /* SearchViewController.swift */,
 				D76C3A61269610C600E5D5B7 /* SearchCollectionViewCell.swift */,
-				5D424E362694C8A100D3F715 /* CollectionViewCell.swift */,
 				5D424E272694B6EB00D3F715 /* Main.storyboard */,
 				5D424E2A2694B6EE00D3F715 /* Assets.xcassets */,
 				5D424E2C2694B6EE00D3F715 /* LaunchScreen.storyboard */,
@@ -239,13 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D424E262694B6EB00D3F715 /* ViewController.swift in Sources */,
 				D76C3A582694CF7C00E5D5B7 /* APIService.swift in Sources */,
 				D76C3A6026960F3800E5D5B7 /* SearchViewController.swift in Sources */,
 				D76C3A5B2694D1DF00E5D5B7 /* User.swift in Sources */,
 				5D424E222694B6EB00D3F715 /* AppDelegate.swift in Sources */,
 				D76C3A5E2694EEFE00E5D5B7 /* AccountService.swift in Sources */,
-				5D424E372694C8A100D3F715 /* CollectionViewCell.swift in Sources */,
 				5D424E242694B6EB00D3F715 /* SceneDelegate.swift in Sources */,
 				D76C3A62269610C600E5D5B7 /* SearchCollectionViewCell.swift in Sources */,
 			);
@@ -397,6 +389,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubApiDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,7 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.peter.GitHubApiDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -416,6 +409,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GitHubApiDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.peter.GitHubApiDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

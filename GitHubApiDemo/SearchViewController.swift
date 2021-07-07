@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+import CCBottomRefreshControl
 import UICollectionViewLeftAlignedLayout
 
 class SearchViewController: UIViewController,
