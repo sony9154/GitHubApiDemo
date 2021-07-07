@@ -13,8 +13,12 @@ target 'GitHubApiDemo' do
   pod 'RxOptional', '~> 4.1'
 
   pod 'Kingfisher'
-
- # Pull to Refresh
+  pod 'SnapKit'
+  
+  # Pull to Refresh
   pod 'CCBottomRefreshControl'
+  
+  # CollectionView Alignment
+  pod 'UICollectionViewLeftAlignedLayout'
 
 end

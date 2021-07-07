@@ -11,6 +11,8 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
+  - SnapKit (5.0.1)
+  - UICollectionViewLeftAlignedLayout (1.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -19,6 +21,8 @@ DEPENDENCIES:
   - RxCocoa (~> 5.0)
   - RxOptional (~> 4.1)
   - RxSwift (~> 5.0)
+  - SnapKit
+  - UICollectionViewLeftAlignedLayout
 
 SPEC REPOS:
   trunk:
@@ -29,6 +33,8 @@ SPEC REPOS:
     - RxOptional
     - RxRelay
     - RxSwift
+    - SnapKit
+    - UICollectionViewLeftAlignedLayout
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -38,7 +44,9 @@ SPEC CHECKSUMS:
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: 8309945065625924aa6018342654aa4959869463
+PODFILE CHECKSUM: c8935a6e4684542c1d0c2d4ac51582e513c2ac2a
 
 COCOAPODS: 1.10.1
