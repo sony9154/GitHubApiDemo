@@ -14,4 +14,7 @@ target 'GitHubApiDemo' do
 
   pod 'Kingfisher'
 
+ # Pull to Refresh
+  pod 'CCBottomRefreshControl'
+
 end

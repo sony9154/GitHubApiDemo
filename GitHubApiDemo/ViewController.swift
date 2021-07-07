@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CCBottomRefreshControl
 
 class ViewController: UIViewController,
                       UICollectionViewDataSource,
@@ -24,16 +25,22 @@ class ViewController: UIViewController,
     var searchBarBoundsY:CGFloat?
     var refreshControl:UIRefreshControl?
     var users: [User]?
+    var searchText: String?
     var cellWidth:CGFloat{
         return collectionView.frame.size.width/2
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         collectionSearchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
+        // Setup pull to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.triggerVerticalOffset = 100
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.bottomRefreshControl = refreshControl
         self.dataSource = []
         
         self.dataSourceForSearchResult = [String]()
@@ -108,6 +115,7 @@ class ViewController: UIViewController,
             cell.nameLabel.text = users[indexPath.item].accountName
             let imageUrl = URL(string: users[indexPath.item].avatar ?? "")
             cell.avatarImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "bgExplore"))
+            cell.indexLabel.text = String(indexPath.item + 1)
         }else{
             cell.nameLabel.text = self.users?[indexPath.row].accountName;
         }
@@ -142,5 +150,20 @@ class ViewController: UIViewController,
     }
 
 
+    @objc func refresh() {
+        collectionView.bottomRefreshControl?.beginRefreshing()
+        AccountService.shared.getMoreUsers { result in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.collectionView?.reloadData()
+                self.collectionView.bottomRefreshControl?.endRefreshing()
+            case .failure(let error):
+                self.collectionView.bottomRefreshControl?.endRefreshing()
+                print(error)
+            }
+        }
+    }
+    
 }
 

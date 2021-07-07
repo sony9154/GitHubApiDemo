@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - CCBottomRefreshControl (0.5.2)
   - Kingfisher (6.3.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - CCBottomRefreshControl
   - Kingfisher
   - RxCocoa (~> 5.0)
   - RxOptional (~> 4.1)
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CCBottomRefreshControl
     - Kingfisher
     - RxCocoa
     - RxOptional
@@ -29,12 +32,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
 
-PODFILE CHECKSUM: 18d3106649347c53487496231a2d4332fcc4c9fe
+PODFILE CHECKSUM: 8309945065625924aa6018342654aa4959869463
 
 COCOAPODS: 1.10.1

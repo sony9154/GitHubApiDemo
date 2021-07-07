@@ -3,4 +3,86 @@
    uuid = "DE8B00BA-8A47-411A-BBDC-C625B27EC440"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B9F5745-66DE-44B0-AFBF-C65803778CDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubApiDemo/APIService/AccountService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getMoreUsers(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31B55BEB-7EA4-4839-8769-CF033DA770C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubApiDemo/APIService/AccountService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getUsers(q:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "198AD2C9-775B-48E3-AD86-3A2A5D2C4CD2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubApiDemo/APIService/AccountService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getMoreUsers(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "198AD2C9-775B-48E3-AD86-3A2A5D2C4CD2 - 2dd40e85e7aa7ce9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GitHubApiDemo.AccountService.getMoreUsers(completion: (Swift.Result&lt;Swift.Array&lt;GitHubApiDemo.User&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GitHubApiDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsuhua/Documents/myOwnProjects/GitHubApiDemo/GitHubApiDemo/APIService/AccountService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "198AD2C9-775B-48E3-AD86-3A2A5D2C4CD2 - 11e0327bd250a556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GitHubApiDemo.User&gt;, Swift.Error&gt;) -&gt; () in GitHubApiDemo.AccountService.getMoreUsers(completion: (Swift.Result&lt;Swift.Array&lt;GitHubApiDemo.User&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GitHubApiDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hsuhua/Documents/myOwnProjects/GitHubApiDemo/GitHubApiDemo/APIService/AccountService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
