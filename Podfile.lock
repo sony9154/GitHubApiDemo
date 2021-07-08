@@ -1,16 +1,24 @@
 PODS:
   - Alamofire (5.4.3)
   - CCBottomRefreshControl (0.5.2)
+  - Differentiator (4.0.1)
   - Kingfisher (6.3.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxOptional (4.1.0):
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
+  - RxViewController (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - SnapKit (5.0.1)
   - UICollectionViewLeftAlignedLayout (1.0.2)
 
@@ -19,8 +27,10 @@ DEPENDENCIES:
   - CCBottomRefreshControl
   - Kingfisher
   - RxCocoa (~> 5.0)
+  - RxDataSources (~> 4.0)
   - RxOptional (~> 4.1)
   - RxSwift (~> 5.0)
+  - RxViewController
   - SnapKit
   - UICollectionViewLeftAlignedLayout
 
@@ -28,25 +38,31 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CCBottomRefreshControl
+    - Differentiator
     - Kingfisher
     - RxCocoa
+    - RxDataSources
     - RxOptional
     - RxRelay
     - RxSwift
+    - RxViewController
     - SnapKit
     - UICollectionViewLeftAlignedLayout
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
-PODFILE CHECKSUM: c8935a6e4684542c1d0c2d4ac51582e513c2ac2a
+PODFILE CHECKSUM: 7f0f3426adece2b95e1b97f8ae91fe1824058bd0
 
 COCOAPODS: 1.10.1

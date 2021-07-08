@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="078-h0-Cku">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PvO-Ii-Hdm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,26 +10,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--SearchVC-->
         <scene sceneID="AMf-1b-UBO">
             <objects>
-                <viewController id="078-h0-Cku" customClass="SearchViewController" customModule="GitHubApiDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="078-h0-Cku" customClass="SearchVC" customModule="GitHubApiDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FQO-lo-6nj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Cwd-yl-gYR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="377-9s-CMH" customClass="SearchTextField" customModule="GitHubApiDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="FTE-S0-N6P"/>
+                                    <constraint firstAttribute="height" constant="34" id="ZUN-rw-909"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="078-h0-Cku" id="Gmj-4v-NwY"/>
-                                </connections>
-                            </searchBar>
+                            </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8h6-sF-9Q9">
-                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <rect key="frame" x="0.0" y="78" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pLO-9l-BcP">
                                     <size key="itemSize" width="128" height="128"/>
@@ -56,23 +54,38 @@
                         <viewLayoutGuide key="safeArea" id="3Wj-or-tQK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8h6-sF-9Q9" firstAttribute="top" secondItem="Cwd-yl-gYR" secondAttribute="bottom" id="351-6v-JLo"/>
+                            <constraint firstItem="377-9s-CMH" firstAttribute="top" secondItem="3Wj-or-tQK" secondAttribute="top" id="D4o-nQ-ZQq"/>
+                            <constraint firstItem="377-9s-CMH" firstAttribute="leading" secondItem="3Wj-or-tQK" secondAttribute="leading" id="FHb-KO-Wv2"/>
                             <constraint firstItem="8h6-sF-9Q9" firstAttribute="leading" secondItem="3Wj-or-tQK" secondAttribute="leading" id="IGO-bH-vcO"/>
-                            <constraint firstItem="Cwd-yl-gYR" firstAttribute="trailing" secondItem="3Wj-or-tQK" secondAttribute="trailing" id="NbC-gV-sXo"/>
-                            <constraint firstAttribute="bottom" secondItem="8h6-sF-9Q9" secondAttribute="bottom" id="Zya-Oa-Zjl"/>
-                            <constraint firstItem="Cwd-yl-gYR" firstAttribute="top" secondItem="3Wj-or-tQK" secondAttribute="top" id="izA-ek-zMF"/>
-                            <constraint firstItem="Cwd-yl-gYR" firstAttribute="leading" secondItem="3Wj-or-tQK" secondAttribute="leading" id="nfw-NS-Z09"/>
+                            <constraint firstItem="8h6-sF-9Q9" firstAttribute="bottom" secondItem="FQO-lo-6nj" secondAttribute="bottom" id="RSA-Pj-gTJ"/>
+                            <constraint firstItem="8h6-sF-9Q9" firstAttribute="top" secondItem="377-9s-CMH" secondAttribute="bottom" id="Zya-Oa-Zjl"/>
                             <constraint firstItem="8h6-sF-9Q9" firstAttribute="trailing" secondItem="3Wj-or-tQK" secondAttribute="trailing" id="wOK-dj-atM"/>
+                            <constraint firstItem="3Wj-or-tQK" firstAttribute="trailing" secondItem="377-9s-CMH" secondAttribute="trailing" id="zWl-bm-IfD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="8h6-sF-9Q9" id="Xt7-TF-Nfm"/>
-                        <outlet property="searchBar" destination="Cwd-yl-gYR" id="hz0-E7-geU"/>
+                        <outlet property="searchTextField" destination="377-9s-CMH" id="5Sc-CG-CXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Coi-2Z-zxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49.275362318840585" y="1101.5625"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="mwV-br-pgm">
+            <objects>
+                <viewController id="PvO-Ii-Hdm" customClass="MainViewController" customModule="GitHubApiDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ygT-ej-zhh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="S9D-7C-mdg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oi5-w0-eya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759" y="88"/>
         </scene>
     </scenes>
     <resources>
