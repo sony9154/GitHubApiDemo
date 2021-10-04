@@ -11,11 +11,11 @@ class AccountService {
     static var shared = AccountService()
     
     func getUsers(q: String, pageIndex: Int, pageSize: Int,
-                    completion: @escaping (Result<[User], Error>) -> Void) {
-        APIService.shared.getUsers(q: q, page: pageIndex, per_page: pageSize) { result in
+                    completion: @escaping (Result<[MediaItem], Error>) -> Void) {
+        APIService.shared.getUsers(q: q) { result in
             switch result {
-            case .success(let users):
-                completion(.success(users))
+            case .success(let mediaItems):
+                completion(.success(mediaItems))
             case .failure(let error):
                 print(error)
             }

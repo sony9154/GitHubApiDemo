@@ -14,6 +14,8 @@ class MainRouter: Router {
  
     enum Routes: Routable {
         case rootToHome
+        case searchToShowPlayer(mediaItem: MediaItem)
+        
         var routeBehavior: RouteBehavior {
             switch self {
             default:
@@ -33,6 +35,8 @@ class MainRouter: Router {
             target = SearchUINode()
             target?.router = self
 
+        case .searchToShowPlayer:
+            target = PlayerUINode()
         }
         return target
     }
@@ -46,6 +50,8 @@ class MainRouter: Router {
         switch route {
         case .rootToHome:
             return UIDisplayContext(method: .embed(source: vc, view: nil))
+        case .searchToShowPlayer:
+            return UIDisplayContext(method: .present(source: vc, animated: true, style: .fullScreen))
         }
     }
     
@@ -56,6 +62,10 @@ class MainRouter: Router {
         
         switch route {
         case .rootToHome:
+            break
+        case .searchToShowPlayer(let mediaItem):
+            guard let target = target as? PlayerUINode else { break }
+            target.act(.setMediaItem(mediaItem: mediaItem))
             break
         }
     }

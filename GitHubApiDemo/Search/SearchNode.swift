@@ -13,7 +13,7 @@ import RxOptional
 class SearchNode: Node {
     // MARK: - Store
     var searchText = RxVar<String?>(nil)
-    var users = RxVar<[User]?>(nil)
+    var mediaItems = RxVar<[MediaItem]?>(nil)
     var currentPage = RxVar<Int?>(nil)
     var busyFetchingMoreUsers = RxVar<Bool>(false)
     
@@ -22,6 +22,7 @@ class SearchNode: Node {
         case setSearchText(text: String?)
         case fetchUsers(q: String)
         case fetchMoreUsers
+        case showPlayer(mediaItem: MediaItem)
     }
     
     func act(_ action: Action, done: ActionCompletion? = nil) {
@@ -38,10 +39,10 @@ class SearchNode: Node {
             AccountService.shared.getUsers(q: q, pageIndex: pageIndex, pageSize: pageSize) { [weak self] result in
                 self?.busyFetchingMoreUsers.accept(false)
                 switch result {
-                case .success(let users):
+                case .success(let mediaItems):
 //                    self.currentPage = (users.count / self.pageSize) + 1
-                    self?.users.accept(users)
-                    self?.currentPage.accept(users.count / pageSize)
+                    self?.mediaItems.accept(mediaItems)
+                    self?.currentPage.accept(mediaItems.count / pageSize)
                     self?.searchText.accept(q)
                 case .failure(let error):
                     print(error)
@@ -62,12 +63,12 @@ class SearchNode: Node {
                 self?.busyFetchingMoreUsers.accept(false)
                 switch result {
                 case .success(let fetchedNotices):
-                    var users = self?.users.value ?? []
+                    var users = self?.mediaItems.value ?? []
                     let fetchedNotices = fetchedNotices.filter { notice in
                         !users.contains(where: { $0.id == notice.id })
                     }
                     users.append(contentsOf: fetchedNotices)
-                    self?.users.accept(users)
+                    self?.mediaItems.accept(users)
                     self?.currentPage.accept(users.count / pageSize)
                     
                 case .failure(let error):
@@ -75,7 +76,9 @@ class SearchNode: Node {
                 }
                 done?()
             }
-            
+        case .showPlayer(let mediaItem):
+            router?.route(MainRouter.Routes.searchToShowPlayer(mediaItem: mediaItem), from: self)
+            done?()
         }
     }
     

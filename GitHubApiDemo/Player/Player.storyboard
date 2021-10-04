@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PlayerVC-->
+        <scene sceneID="tQh-Xo-8Ds">
+            <objects>
+                <viewController storyboardIdentifier="PlayerVC" id="kQ1-Xv-AbZ" customClass="PlayerVC" customModule="GitHubApiDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fwj-md-qt3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zzQ-bQ-JbJ">
+                                <rect key="frame" x="32" y="355" width="346" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUP-98-oYQ">
+                                <rect key="frame" x="286" y="306" width="90" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K18-Gm-fyl">
+                                <rect key="frame" x="33" y="424" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ic_orchadio_go_to_previous"/>
+                                <connections>
+                                    <action selector="ButtonGoToBack:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="i4Q-Ha-4VO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWP-Ka-PDu">
+                                <rect key="frame" x="101" y="423" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ic_orchadio_bacward_sec"/>
+                                <connections>
+                                    <action selector="ButtonGoToBackSec:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="JTV-Do-Hv9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbJ-hU-fcQ">
+                                <rect key="frame" x="169" y="402" width="75" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ic_orchadio_play"/>
+                                <connections>
+                                    <action selector="ButtonPlay:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="kJx-vH-XWr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z97-T0-bE1">
+                                <rect key="frame" x="262" y="423" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ic_orchadio_go_forward_sec"/>
+                                <connections>
+                                    <action selector="ButtonForwardSec:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="Oc9-Gq-fQc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWD-Iy-iFa">
+                                <rect key="frame" x="330" y="424" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="ic_orchadio_go_Next"/>
+                                <connections>
+                                    <action selector="ButtonGoToNext:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="8aI-KV-CpI"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-WV-s4J">
+                                <rect key="frame" x="180" y="424" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQD-eP-rJ9">
+                                <rect key="frame" x="34" y="306" width="103" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7u-PA-bqs">
+                                <rect key="frame" x="182" y="711" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5M0-5L-xWw"/>
+                                    <constraint firstAttribute="height" constant="50" id="F7x-V6-ud3"/>
+                                </constraints>
+                                <state key="normal" image="arrowshape.turn.up.backward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="kQ1-Xv-AbZ" eventType="touchUpInside" id="slj-Qr-GHb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MQK-Cq-BFo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MQK-Cq-BFo" firstAttribute="bottom" secondItem="A7u-PA-bqs" secondAttribute="bottom" constant="101" id="P7S-sY-FSa"/>
+                            <constraint firstItem="A7u-PA-bqs" firstAttribute="centerX" secondItem="Fwj-md-qt3" secondAttribute="centerX" id="xPC-RC-dLd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ButtonPlay" destination="mbJ-hU-fcQ" id="ViQ-Ud-bud"/>
+                        <outlet property="lblOverallDuration" destination="OUP-98-oYQ" id="Lw5-9c-lrB"/>
+                        <outlet property="lblcurrentText" destination="RQD-eP-rJ9" id="boY-Q5-7Xq"/>
+                        <outlet property="loadingView" destination="uXe-WV-s4J" id="NDB-9R-o9u"/>
+                        <outlet property="playbackSlider" destination="zzQ-bQ-JbJ" id="6dx-fW-ZGg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDD-oX-m68" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413" y="113"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="ic_orchadio_bacward_sec" width="34" height="34"/>
+        <image name="ic_orchadio_go_Next" width="34" height="34"/>
+        <image name="ic_orchadio_go_forward_sec" width="34" height="34"/>
+        <image name="ic_orchadio_go_to_previous" width="34" height="34"/>
+        <image name="ic_orchadio_play" width="73" height="73"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

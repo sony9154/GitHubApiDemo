@@ -15,28 +15,26 @@ class APIService {
     var idToken: String?
     var refreshToken: String?
     
-    var baseURL: URL = URL(string:"https://api.github.com")!
+    var baseURL: URL = URL(string:"https://itunes.apple.com")!
     
     var defaultHeaders: HTTPHeaders = [
-        "Accept" : "application/vnd.github.v3+json",
         "Content-Type" : "application/json; charset=utf-8"
     ]
     
-    func getUsers(q: String, page: Int, per_page: Int,
-                 completion: @escaping(Result<[User], Error>) -> Void) {
+    func getUsers(q: String,
+                 completion: @escaping(Result<[MediaItem], Error>) -> Void) {
         
-        var params: [String: Any] = [:]
-        params["q"] = q
-        params["page"] = page
-        params["per_page"] = per_page
-        
-        let url = baseURL.appendingPathComponent("/search/users")
+        var urlComponents = URLComponents(string: "\(baseURL)/search")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "term", value: q)
+        ]
+
+        let url = urlComponents.url!
         let request = AF.request(url, method: .get,
-                                 parameters: params,
+                                 parameters: nil,
                                  headers: defaultHeaders)
                         .validate(statusCode: 200..<300)
-        request.response { response in
-            print(response)
+        request.response { response in            print(response)
             switch response.result {
             case .success(let data):
                 guard let data = data,
@@ -46,24 +44,25 @@ class APIService {
                     return
                 }
                 
-                guard let usersArray = dictionary["items"] as? [[String: Any]] else {
+                guard let resultsArray = dictionary["results"] as? [[String: Any]] else {
                     completion(.failure(APIError.error(with: response.data)))
                     return
                 }
-                var users: [User] = []
+                var mediaItems: [MediaItem] = []
                 
-                for userData in usersArray {
-                    guard let userID = userData["id"] as? Int64 else {
+                for resultData in resultsArray {
+                    guard let trackId = resultData["trackId"] as? Int64 else {
                         continue
                     }
-                    var user = User(id: userID)
-                    user.accountName = userData["login"] as? String
-                    user.avatar = userData["avatar_url"] as? String
-                    
-                    users.append(user)
+                    var item = MediaItem(id: trackId)
+                    item.artistName = resultData["artistName"] as? String
+                    item.artworkUrl100 = resultData["artworkUrl100"] as? String
+                    item.longDescription = resultData["longDescription"] as? String
+                    item.previewUrl = resultData["previewUrl"] as? String
+                    mediaItems.append(item)
                 }
                 
-                completion(.success(users))
+                completion(.success(mediaItems))
                 
             case .failure(let error):
                 completion(.failure(APIError.error(with: response.data,
