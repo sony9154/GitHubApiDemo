@@ -40,32 +40,13 @@ class MediaItemCell: UICollectionViewCell {
         let imageUrl = URL(string: mediaItem.artworkUrl100 ?? "")
         longDescription.text = mediaItem.longDescription
         avatarImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "bgExplore"))
-//        if let previewUrl = mediaItem.previewUrl {
-//            if previewUrl.contains("audio") {
-//                self.previewUrl = previewUrl
-//                let playerItem: AVPlayerItem = AVPlayerItem(url: URL(string: previewUrl)!)
-//                player = AVPlayer(playerItem: playerItem)
-//                let playerLayer = AVPlayerLayer(player: player)
-//                playerLayer.frame = baseView.frame
-//                baseView.layer.addSublayer(playerLayer)
-//            }
-//        }
     }
 
     @IBAction func playButtonPressed(_ sender: UIButton) {
         guard let mediaItem = self.mediaItem else { return }
 
         delegate?.playAndPauseMusic(mediaItem: mediaItem)
-//        guard let url = self.previewUrl else { return }
-//        if player?.rate == 0
-//        {
-//            player!.play()
-//        } else {
-//            player!.pause()
-//
-//        }
-        
-        
+
     }
     
     

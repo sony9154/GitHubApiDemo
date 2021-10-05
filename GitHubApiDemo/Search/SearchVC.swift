@@ -15,8 +15,6 @@ import UICollectionViewLeftAlignedLayout
 
 class SearchVC: NodeVC,
                 StoryboardMakable,
-                UICollectionViewDataSource,
-                UICollectionViewDelegate,
                 UICollectionViewDelegateFlowLayout,
                 MediaItemDelegate {
     
@@ -30,12 +28,9 @@ class SearchVC: NodeVC,
         searchTextField.placeholder = "Please Enter Search Text Here"
 //        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.register(UINib(nibName: "MediaItemCell", bundle: nil), forCellWithReuseIdentifier: "MediaItemCell")
-        collectionView.collectionViewLayout = UICollectionViewLeftAlignedLayout()
-        collectionView.contentInset = UIEdgeInsets(top: 18, left: 25, bottom: 0, right: 0)
-        // Setup pull to refresh
-        let refreshControl = UIRefreshControl()
-        refreshControl.triggerVerticalOffset = 100
-        collectionView.bottomRefreshControl = refreshControl
+        collectionView.delegate = self
+        collectionView.dataSource = nil
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()        
     }
     
     // MARK: - Binding
@@ -59,35 +54,16 @@ class SearchVC: NodeVC,
                 self?.collectionView.reloadData()
             }).disposed(by: disposeBag)
         
-        node.busyFetchingMoreUsers
-            .delay(.milliseconds(100), scheduler: MainScheduler.instance)
-            .filter { !$0 }
-            .subscribe(onNext: { [weak self] _ in
-                self?.collectionView.bottomRefreshControl?.endRefreshing()
-            }).disposed(by: disposeBag)
-        
-        collectionView.bottomRefreshControl?.rx.controlEvent(.valueChanged)
-            .subscribe(onNext: { [weak node] in
-                node?.act(.fetchMoreUsers)
-                self.collectionView.reloadData()
-            }).disposed(by: disposeBag)
-        
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return node?.mediaItems.value?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SearchCollectionViewCell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCell
-        guard let mediaItems = node?.mediaItems.value else { return UICollectionViewCell() }
-        for mediaItem in mediaItems {
-            cell.delegate = self
-            cell.configure(with: mediaItem)
-        }
-        cell.indexLabel?.text = String(indexPath.item + 1)
-        return cell
+        node.mediaItems
+            .map { $0 ?? [] }
+            .filterNil()
+            .bind(to: self.collectionView.rx.items(cellIdentifier: "MediaItemCell", cellType: MediaItemCell.self))
+                { index, mediaItem, cell in
+                    cell.delegate = self
+                    cell.indexLabel?.text = String(index + 1)
+                    cell.configure(with: mediaItem)
+                }
+            .disposed(by: disposeBag)
         
     }
 
@@ -95,15 +71,22 @@ class SearchVC: NodeVC,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
+        let cell = Bundle.main.loadNibNamed("MediaItemCell", owner: self, options: nil)?.first as! MediaItemCell
+//        cell.longDescription.contentSize = cell.longDescription.intrinsicContentSize
         let width = UIScreen.main.bounds.width
         layout.minimumLineSpacing = 15.0
         layout.minimumInteritemSpacing = 20.0
         collectionView.collectionViewLayout = layout
-        let cellWidth: CGFloat = width * 155 / 375
-//        return CGSize(width: cellWidth, height: cellWidth * (168/162))
-        return CGSize(width: UIScreen.main.bounds.width, height: cellWidth * (168/162))
+        guard let item  = node?.mediaItems.value?[indexPath.row] else { return CGSize() }
+        if (item.longDescription != nil) {
+            return CGSize(width: width, height: cell.avatarImageView.frame.size.height +
+                                                cell.nameLabel.frame.size.height +
+                                                cell.longDescription.contentSize.height)
+        } else {
+            return CGSize(width: width, height: cell.avatarImageView.frame.size.height +
+                                                cell.nameLabel.frame.size.height)
+        }
     }
- 
     
     func playAndPauseMusic(mediaItem: MediaItem) {
         node?.act(.showPlayer(mediaItem: mediaItem))

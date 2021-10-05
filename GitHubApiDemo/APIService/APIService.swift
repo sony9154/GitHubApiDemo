@@ -21,12 +21,12 @@ class APIService {
         "Content-Type" : "application/json; charset=utf-8"
     ]
     
-    func getUsers(q: String,
+    func getMediaItems(query: String,
                  completion: @escaping(Result<[MediaItem], Error>) -> Void) {
         
         var urlComponents = URLComponents(string: "\(baseURL)/search")!
         urlComponents.queryItems = [
-            URLQueryItem(name: "term", value: q)
+            URLQueryItem(name: "term", value: query)
         ]
 
         let url = urlComponents.url!

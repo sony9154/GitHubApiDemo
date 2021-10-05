@@ -20,8 +20,7 @@ class SearchNode: Node {
     // MARK: - Action
     enum Action {
         case setSearchText(text: String?)
-        case fetchUsers(q: String)
-        case fetchMoreUsers
+        case fetchMediaItems(q: String)
         case showPlayer(mediaItem: MediaItem)
     }
     
@@ -29,48 +28,16 @@ class SearchNode: Node {
         switch action {
         case .setSearchText(let text):
             searchText.accept(text)
-            act(.fetchUsers(q: text ?? ""))
+            act(.fetchMediaItems(q: text ?? ""))
             done?()
-        case .fetchUsers(let q):
+        case .fetchMediaItems(let q):
             busyFetchingMoreUsers.accept(true)
             
-            let pageIndex = 1
-            let pageSize = 30
-            AccountService.shared.getUsers(q: q, pageIndex: pageIndex, pageSize: pageSize) { [weak self] result in
+            AccountService.shared.getMediaItems(query: q) { [weak self] result in
                 self?.busyFetchingMoreUsers.accept(false)
                 switch result {
                 case .success(let mediaItems):
-//                    self.currentPage = (users.count / self.pageSize) + 1
                     self?.mediaItems.accept(mediaItems)
-                    self?.currentPage.accept(mediaItems.count / pageSize)
-                    self?.searchText.accept(q)
-                case .failure(let error):
-                    print(error)
-                }
-                done?()
-            }
-            
-        case .fetchMoreUsers:
-//            guard busyFetchingMoreUsers.value else {
-//                done?()
-//                break
-//            }
-            let pageIndex = currentPage.value ?? 0
-            let pageSize = 30
-//            busyFetchingMoreUsers.accept(true)
-            guard let q = self.searchText.value else { return }
-            AccountService.shared.getUsers(q: q, pageIndex: pageIndex + 1, pageSize: pageSize) { [weak self] result in
-                self?.busyFetchingMoreUsers.accept(false)
-                switch result {
-                case .success(let fetchedNotices):
-                    var users = self?.mediaItems.value ?? []
-                    let fetchedNotices = fetchedNotices.filter { notice in
-                        !users.contains(where: { $0.id == notice.id })
-                    }
-                    users.append(contentsOf: fetchedNotices)
-                    self?.mediaItems.accept(users)
-                    self?.currentPage.accept(users.count / pageSize)
-                    
                 case .failure(let error):
                     print(error)
                 }
